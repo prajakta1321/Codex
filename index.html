@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fandom Poll-O-Meter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js" defer></script>
+    <script src="./js/barchart.js" defer></script>
+    <script src="./js/doughnutchart.js" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Trirong" rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet" >
+    <link href='https://fonts.googleapis.com/css?family=Emilys Candy' rel='stylesheet'>
+</head>
+<body style="background-image: linear-gradient(#6db9ef, #ffff0080);">
+<!-----header----->
+<section id="header">
+  <div class="menubar">
+      <nav class="navbar navbar-expand-md navbar-light">
+          <a class="navbar-brand" style="padding-left: 12px; color:black; font-weight: bold; font-size: 25px;" href="#">Fandom Poll</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" style="padding-left: 12px;" href="#chart">Today's Pole</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" style="padding-left: 12px;" href="#doughnutchart">Yesterday's Final Result</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" style="padding-left: 12px;" href="#suggestion">Suggestions</a>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+  </div>
+</section>
+<!--Chart 1-->
+<h1 style="color: rgba(182, 22, 22, 0.87); padding-top: 45px; font-size: 47px; font-family: Trirong, serif;">TODAY'S THEME IS:</h1>
+<br>
+<div class="image" style="position: relative; overflow: hidden;">
+  <h1 style="font-family: 'Emilys Candy';
+  font-size: 60px;
+  line-height: 1;
+  margin: 0;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  color:#ff401ee3;
+  text-transform: uppercase;
+  animation: fadeIn 0s 0.6s;
+  animation-fill-mode: backwards;">Most Favourite TV Show !!!</h1>
+</div>
+<!--<h1>Most Favourite TV Show !!!</h1>-->
+<div class="chart-container">
+  <canvas id='chart'></canvas>
+</div>
+<form id="pollForm">
+  <div class="poll">
+    <div class="poll-heading">
+      <h3 class="poll-title">Favorite TV Show</h3>
+    </div>
+    <div class="poll-body">
+      <ul>
+        <li>
+          <label><input type="radio" name="pollOptions" value="F.R.I.N.D.S"><span>F.R.I.N.D.S</span></label>
+        </li>
+        <li>
+          <label><input type="radio" name="pollOptions" value="Game of Thrones"><span>Game of Thrones</span></label>
+        </li>
+        <li>
+          <label><input type="radio" name="pollOptions" value="The Big Bang Theory"><span>The Big Bang Theory</span></label>
+        </li>
+        <li>
+          <label><input type="radio" name="pollOptions" value="Stranger Things"><span>Stranger Things</span></label>
+        </li>
+        <li>
+          <label><input type="radio" name="pollOptions" value="Money Heist"><span>Money Heist</span></label>
+        </li>
+        <li>
+          <label><input type="radio" name="pollOptions" value="Sherlock"><span>Sherlock</span></label>
+        </li>
+        <li>
+          <label><input type="radio" name="pollOptions" value="House of Cards"><span>House of Cards</span></label>
+        </li>
+      </ul>
+    </div>
+    <div class="poll-footer">
+      <button type="submit">Vote</button>
+    </div>
+  </div>
+</form>
+<!--Chart 2-->
+<h1 style="color: rgb(248, 83, 54); padding-top: 50px; font-size: 45px; font-family: Trirong, serif;">Yesterday's Result is OUT Now!</h1>
+<h1 style="padding-top: 25px; font-family: Audiowide, sans-serif;">Most Favourite SuperHero !!!</h1>
+<div class="chart2">
+  <canvas id="doughnutchart"></canvas>
+</div>
+<!---suggestion-->
+<section id="suggesion">
+  <div class="sugession text-center" style="padding-top: 50px; font-size: 20px;"><h3>Suggest Us</h3></div>
+  <div class="container">
+      <form action="action_page.php">
+    
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+            
+        <label for="suggestion">Suggest the  Poll that You Want!!</label>
+        <textarea id="suggestion" name="suggestion" placeholder="Write something.." style="height:200px"></textarea>
+    
+        <input type="submit" value="Send">
+    
+      </form>
+  </div>
+  </div>
+</section>
+<!--Footer-->
+<footer class="footer" style="align-items: center;">
+  <div class="footer_copyright">&copy;Fandom Poll@2021</div>
+</footer>
+</body>
+</html>
