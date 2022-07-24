@@ -1,0 +1,32 @@
+# SIMPLE CALCULATOR
+
+ #TAKING TWO NUMBERS AS INPUT 
+ 
+a= int(input("enter first number:")) 
+b = int(input("enter second number:"))
+c = input("select an operation:")
+
+# ASSIGNING SIMPLE OPERATIONS 
+if (c == '+'):
+    answer = a + b
+    print(answer)
+elif (c == '-'):
+    answer = a - b
+    print(answer)
+elif (c == '*'):
+    answer = a * b
+    print(answer)
+elif (c == '/'):
+    answer = (a / b)
+    print(answer)
+elif (c == '%'):
+    answer = a % b
+    print(answer)
+elif (c == '>'):
+    answer = a > b
+    print('the greater number is a is' , answer) 
+elif (c == '<'):
+    answer = a < b
+    print('the greater number is b is' ,answer)                           
+else:
+    print("Invalid numbers of operation chosen")  
