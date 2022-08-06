@@ -1,0 +1,23 @@
+BMI ( BODY MASS INDEX CALCULATOR)
+
+# TAKING INPUTS
+
+wt=int(input("enter your weight in kgs"))    
+ht=float(input("enter your height in mtrs"))  
+
+#FORMULA
+bmi=wt/(ht*ht)
+
+#USING IF - ELSE LADDER
+if bmi < 18.5:
+    print("Underweight")
+elif bmi >= 18.5 and bmi < 25:
+     print("Normal")
+elif bmi >= 25 and bmi < 30:
+     print("Overweight")
+elif bmi >= 30:
+     print("Obesity")
+else:
+    print("incomplete information provided")
+
+    
