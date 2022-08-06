@@ -1,0 +1,7 @@
+# list comprehensions 
+# to print the multiples of 3
+
+
+multiples_of_three=[i**1 for i in range(10) if i**3 % 3 == 0]
+
+print(multiples_of_three)
