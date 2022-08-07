@@ -1,0 +1,29 @@
+
+
+# this or that using python
+
+print('THIS OR THAT \n choose any one from the choices \n' )
+
+print('   1.career\n   2. colors\n   3.prog_language\n   4.seafood\n')
+
+
+a = str(input("choose from the above mentioned choices   :  "))
+
+
+career = ['life sciences' , 'or' ,  'sociology']
+colors = ['teal' ,'or' ,  'aqua']
+prog_language = ['swift' ,'or' ,  'ruby']
+seafood = ['eel' ,'or' ,  'lobster']
+
+
+if (a == 'career'):
+    print("This or That CAREER",career)
+elif (a == 'colors'):
+    print("This or That COLORS",colors)
+elif(a == 'prog.language'):
+    print("This or That PROG_LANGUAGE",prog_language)
+elif (a == 'seafood'):
+    print("This or That SEAFOOD",seafood)
+else:
+    print("invalid arguments selected")
+
