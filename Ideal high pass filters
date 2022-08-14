@@ -1,10 +1,15 @@
+platform : google colab
+upload image separately from devices
 
-
-
-
+CONTRIBUTERS:
+             TEAM CONCEPT
+             ARJUN SATHEESH
+             PRIYANSHU BHAGAT
+             GAUTAM GOVINDARAJU
 
 
 # high pass filter
+
 from skimage.io import imread
 import scipy.fftpack as fp
 from math import sqrt,exp
