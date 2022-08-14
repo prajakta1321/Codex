@@ -1,7 +1,14 @@
+platform : google colab
+upload image separately from devices
+
+CONTRIBUTERS:
+             TEAM CONCEPT
+             ARJUN SATHEESH
+             PRIYANSHU BHAGAT
+             GAUTAM GOVINDARAJU
 
 
-
-#low pass filter 
+#image processing in ideal low pass filter 
 
 from skimage.io import imread # skimage stores the information for each pixel in an n-dimensional NumPy arrays.
 import scipy.fftpack as fp #SciPy offers the fftpack module, which lets the user compute fast Fourier transforms
