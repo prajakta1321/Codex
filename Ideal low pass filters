@@ -1,0 +1,100 @@
+
+
+
+#low pass filter 
+
+from skimage.io import imread # skimage stores the information for each pixel in an n-dimensional NumPy arrays.
+import scipy.fftpack as fp #SciPy offers the fftpack module, which lets the user compute fast Fourier transforms
+
+from math import sqrt,exp      
+#sqrt() function is an inbuilt function in Python programming language that returns the square root of any number. 
+#The exp() function in Python allows users to calculate the exponential value with the base set to e. 
+#Note: e is a Mathematical constant, with a value approximately equal to 2.71828. 
+#The math library must be imported for this function to be executed.
+
+from io import BytesIO  #BytesIO is a  method that manipulates byte data in memory.BytesIO is used for binary data. 
+import numpy as np                          # library used for working with arrays
+import matplotlib.pylab as plt               # library used for ploting, graph
+import cv2                                   # library for Open Source Computer vision library
+from PIL import Image                       # Python Imaging Library for load, display, save etc
+from google.colab.patches import cv2_imshow
+from google.colab import files
+
+img = cv2.imread("text.jpeg")    
+img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+plt.figure(figsize=(10,10))   #The figure() function in pyplot module of matplotlib library is used to create a new figure.
+                              #The figsize attribute allows us to specify the width and height of a figure in unit inches. 
+plt.imshow(img,cmap=plt.cm.gray)
+#plt.axis('off')   # removes the x and y axes from the plot .
+plt.show()
+
+plt.figure(figsize=(6.4*5, 4.8*5), constrained_layout=False) 
+#The figsize attribute is a parameter of the function figure(). 
+#It is an optional attribute, by default the figure has the dimensions as (6.4, 4.8).
+# This is a standard plot where the attribute is not mentioned in the function.
+
+img = cv2.imread("text.jpeg", 0)
+plt.subplot(151), plt.imshow(img, "gray"), plt.title("Original Image") 
+#pyplot. subplots method provides a way to plot multiple plots on a single figure
+
+original = np.fft.fft2(img)
+plt.subplot(152), plt.imshow(np.log(1+np.abs(original)), "gray"), plt.title("Spectrum") 
+#The numpy. log() is a mathematical function that helps user to calculate Natural logarithm 
+# of x where x belongs to all the input array elements.
+#Natural logarithm log is the inverse of the exp(), so that log(exp(x)) = x.
+
+center = np.fft.fftshift(original)
+plt.subplot(153), plt.imshow(np.log(1+np.abs(center)), "gray"), plt.title("Centered Spectrum")
+
+inv_center = np.fft.ifftshift(center)
+plt.subplot(154), plt.imshow(np.log(1+np.abs(inv_center)), "gray"), plt.title("Decentralized")
+
+processed_img = np.fft.ifft2(inv_center)
+plt.subplot(155), plt.imshow(np.abs(processed_img), "gray"), plt.title("Processed Image")
+
+plt.show()
+
+plt.figure(figsize=(6.4*5, 4.8*5), constrained_layout=False)
+
+img = cv2.imread("text.jpeg", 0)
+
+original = np.fft.fft2(img)
+plt.subplot(121), plt.imshow(np.log(np.abs(original)), "gray"), plt.title("Spectrum")
+
+plt.subplot(122), plt.imshow(np.angle(original), "gray"), plt.title("Phase Angle")
+plt.show()
+
+def distance(point1,point2):
+    return sqrt((point1[0]-point2[0])**2 + (point1[1]-point2[1])**2)
+
+def idealFilterLP(D0,imgShape):
+    base = np.ones(imgShape[:2])
+    rows, cols = imgShape[:2]
+    center = (rows/2,cols/2)
+    for x in range(cols):
+        for y in range(rows):
+            if distance((y,x),center) > D0:
+                base[y,x] = 0
+    return base
+plt.figure(figsize=(6.4*5, 4.8*5), constrained_layout=False) 
+#constrained_layout automatically adjusts subplots and decorations 
+#like legends and colorbars so that they fit in the figure window while still preserving,
+img = cv2.imread("text.jpeg", 0)
+original = np.fft.fft2(img)
+center = np.fft.fftshift(original)
+
+plt.figure(figsize=(6.4*5, 4.8*5), constrained_layout=False)
+plt.subplot(151), plt.imshow(np.log(1+np.abs(center)), "gray"), plt.title("Spectrum")
+
+LowPass = idealFilterLP(50,img.shape)
+plt.subplot(152), plt.imshow(np.abs(LowPass), "gray"), plt.title("Low Pass Filter")
+LowPassCenter = center * idealFilterLP(50,img.shape)
+
+plt.subplot(153), plt.imshow(np.log(1+np.abs(LowPassCenter)), "gray"), plt.title("Centered Spectrum multiply Low Pass Filter")
+LowPass = np.fft.ifftshift(LowPassCenter)
+
+plt.subplot(154), plt.imshow(np.log(1+np.abs(LowPass)), "gray"), plt.title("Decentralize")
+inverse_LowPass = np.fft.ifft2(LowPass)
+
+plt.subplot(155), plt.imshow(np.abs(inverse_LowPass), "gray"), plt.title("Processed Image")
+plt.show()
