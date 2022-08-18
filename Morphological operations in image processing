@@ -1,0 +1,92 @@
+platform : google colab
+upload image separately from devices
+
+CONTRIBUTERS:
+             TEAM CONCEPT
+             ARJUN SATHEESH
+             PRIYANSHU BHAGAT
+             GAUTAM GOVINDARAJU
+             
+# code
+
+#EROSION
+
+from io import BytesIO
+import numpy as np                               # library used for working with arrays
+import matplotlib.pylab as plt                   # library used for ploting, graph
+import cv2                                       # library for Open Source Computer vision library
+from PIL import Image                            # Python Imaging Library for load, display, save etc
+from google.colab.patches import cv2_imshow
+from google.colab import files
+ 
+img = cv2.imread("text.jpeg")
+cv2_imshow(img)
+img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+plt.imshow(img,cmap=plt.cm.gray)
+ 
+m,n= img.shape
+m,n
+P=9
+SE= np.ones((P,P), dtype=np.uint8)
+c = (P-1)//2
+
+# Initialize new image for Eroded as imgEr
+
+imgEr = np.zeros((m,n), dtype=np.uint8)
+for i in range(c, m-c):
+  for j in range(c, n-c):
+    temp= img[i-c:i+c+1,  j-c:j+c+1]
+    product= temp*SE
+    imgEr[i,j]= np.max(product) 
+plt.imshow(imgEr, cmap="gray")
+
+#dilation
+
+c = (P-1)//2
+# Initialize new image for dilation as imgdi
+imgdi = np.zeros((m,n), dtype=np.uint8)
+for i in range(c, m-c):
+  for j in range(c, n-c):
+    temp= img[i-c:i+c+1,  j-c:j+c+1]
+    product= temp*SE
+    imgdi[i,j]= np.min(product)
+
+plt.imshow(imgdi, cmap="gray")
+
+#opening
+m,n= img.shape
+m,n
+P=9
+SE= np.ones((P,P), dtype=np.uint8)
+
+
+
+c = (P-1)//2
+# Initialize new image for dilation as imgdi
+
+imgdi = np.zeros((m,n), dtype=np.uint8)
+for i in range(c, m-c):
+  for j in range(c, n-c):
+    temp= img[i-c:i+c+1,  j-c:j+c+1]
+    product= temp*SE
+    imgdi[i,j]= np.min(product)
+
+plt.imshow(imgdi, cmap="gray")
+
+#closing
+m,n= img.shape
+m,n
+P=9
+SE= np.ones((P,P), dtype=np.uint8)
+c = (P-1)//2
+
+# Initialize new image for Eroded as imgEr
+imgEr = np.zeros((m,n), dtype=np.uint8)
+for i in range(c, m-c):
+  for j in range(c, n-c):
+    temp= img[i-c:i+c+1,  j-c:j+c+1]
+    product= temp*SE
+    imgEr[i,j]= np.max(product) 
+print("Eroded image")
+plt.imshow(imgEr, cmap="gray")
+
