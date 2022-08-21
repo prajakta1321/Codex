@@ -1,0 +1,49 @@
+import numpy as np
+even = np.array([2,4,6,8,10])
+odd = np.array([1,3,5,7])
+
+# adiition to individual arrays by a random number
+even_new = even + 2     # here 2 is taken because for example we want an increment by 2, any number randomly can be chosen.
+even_new
+
+odd_new = odd + 3           # example as  3 
+odd_new
+
+# similarly , 
+#subtraction
+even_new = even - 2
+even_new
+
+odd_new = odd - 3           
+odd_new
+
+# multiplication
+even_new = even * 2
+even_new
+
+odd_new = odd * 3           
+odd_new
+
+# division 
+even_new = even // 2            # or even_new = even / 2
+even_new
+
+odd_new = odd // 3            
+odd_new                         # or odd_new = odd / 3  
+
+# mean 
+np.mean(even_new)
+np.mean(even)
+
+#median
+np.median(even_new)
+
+# standard deviation
+np.std(even_new)
+
+# saving numpy array
+np.save('even1',even)
+
+#loading the numpy array
+even3 = np.load('even1.npy')
+even3
