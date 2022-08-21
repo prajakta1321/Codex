@@ -1,0 +1,57 @@
+# NUMPY BASICS
+
+# taking even and odd arrays for performing operations
+import numpy as np
+even = np.array([2,4,6,8,10])
+even
+
+# another array 
+odd = np.array([1,3,5,7])
+odd 
+
+# adding zeroe to one line
+zero = np.zeros((3,3))
+zero
+
+zero = np.full((3,3),4)
+zero
+
+# adding range
+range = np.arange(14,18)
+range
+
+# adding starting, ending and step 
+step = np.arange(14,18,1)
+step
+
+# adding random numbers
+random_num = np.random.randint(140,180)
+random_num
+
+# addiing shape 
+shape = np.shape([[2,4,6,10],[1,3,5,7],[1,4,7,5],[3,5,2,9]])
+np.shape
+ 
+# joining arrays and stacking verticallys
+even = np.array([2,4,6,10])
+odd = np.array([1,3,5,7])
+np.vstack((even ,odd))
+
+# stack arrays horizontally
+np.hstack((even,odd))
+
+# stacking array columnwise
+np.column_stack((even,odd))
+
+# common numbers in both arrays
+np.intersect1d(even,odd)
+
+#  the arrays which are in 1st array and not in 2nd
+np.setdiff1d(even,odd)
+
+# adding arrays
+np.sum((even,odd))
+
+# adding axis
+np.sum((even,odd),axis =1)
+np.sum((even,odd),axis =0)
