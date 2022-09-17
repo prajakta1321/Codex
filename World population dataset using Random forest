@@ -1,0 +1,28 @@
+platform : google.colab
+ upload csv file of world popuation dataset separately
+ 
+ code:
+ 
+ import pandas as pd
+
+from matplotlib import pyplot as plt
+
+import seaborn as sns
+ 
+import numpy as np
+
+df = pd.read_csv("world_population.csv")
+df
+
+df.head()
+
+# displaying only required columns
+# i want rank , country , 2022 population , density , growth rate , world population percentage columns only 
+
+df_new = df[['Rank' , 'Country' , '2022 Population' , 'Density (per km²)' , 'Growth Rate' , 'World Population Percentage']]
+df_new
+
+# renaming the column names from first letter from upper case to lower case.
+
+df_new.columns =[['Rank' , 'Country' , '2022 Population' , 'Density (per km²)' , 'Growth Rate' , 'World Population Percentage']]
+df_new
