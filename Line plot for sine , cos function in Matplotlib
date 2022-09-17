@@ -1,0 +1,68 @@
+platform : google.colab
+  
+# code:
+# for sin function :
+
+# basic plot :
+
+import matplotlib.pyplot as plt
+import numpy as np
+ 
+# make data
+x = np.linspace(0, 10, 100)        # The numpy.linspace() function returns number spaces evenly w.r.t interval. Similar to numpy.arange() function but instead of step it uses sample number. 
+                                             # numpy.linspace(start,
+                                             # stop,
+                                             # num = 50,
+                                             # endpoint = True,
+                                             # retstep = False,
+                                             # dtype = None)
+
+y = 4 + 2 * np.sin(2 * x)         # The np. sin() function help to find the sine value of the angle in degree and radian. 
+                                  # To get the sine value of the angle in radians, need to multiply the angle with np. pi/180 .
+
+# plot
+fig, ax = plt.subplots()
+
+ax.plot(x, y, linewidth=2.0)
+
+color = 'red'
+plt.plot(x , y , color)               # adding color
+
+plt.xlabel('number1') 
+plt.ylabel('number2') 
+  
+# displaying the title 
+plt.title("sin GRAPH ")
+   
+
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 8), yticks=np.arange(1, 8))
+
+plt.show()
+
+# for cos fucntion :
+
+# similarly for cos function graph :
+
+x = np.linspace(0, 10, 100)
+y = 4 + 2 * np.cos(2 * x)
+np. pi/180          # using cos function 
+
+fig, ax = plt.subplots()
+
+ax.plot(x, y, linewidth=8.0)         # increasing the width of waveform
+
+color = 'yellow'
+plt.plot(x , y , color)               # adding color
+
+plt.xlabel('number3') 
+plt.ylabel('number4') 
+  
+# displaying the title 
+plt.title("cos GRAPH ")
+   
+
+ax.plot(x, y, linewidth=2.0)
+ax.set(xlim=(0, 10), xticks=np.arange(1, 10),
+       ylim=(0, 10), yticks=np.arange(1, 10))
+plt.show()
