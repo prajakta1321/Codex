@@ -1,0 +1,14 @@
+# platform : google colab
+# scatter plot with random values of two sets merged into one graph
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+data1, data2, data3, data4 = np.random.randn(4, 40)   # make 4 random data sets
+
+fig, ax = plt.subplots(figsize=(6, 6))
+
+ax.scatter(data1, data2, s=100, facecolor='C4', edgecolor='red');
+ax.scatter(data3, data4, s=200, facecolor='black', edgecolor='white');
+plt.show()
+ 
