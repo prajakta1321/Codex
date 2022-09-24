@@ -1,0 +1,18 @@
+platform : google colab
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+%matplotlib inline  
+sns.set(color_codes=True)
+
+auto = pd.read_csv('Top 10 Albums By Year_ Tracks  Album Length - Sheet1.csv')
+
+auto.head()
+
+sns.distplot(auto['Tracks'] , color = 'red')
+
+sns.distplot(auto['Year'] , color = 'yellow')
+
+sns.distplot(auto['Ranking'] , color = 'c')
