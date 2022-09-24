@@ -1,0 +1,35 @@
+# seaborn
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+%matplotlib inline  
+sns.set(color_codes=True)
+
+auto = pd.read_csv('Top 10 Albums By Year_ Tracks  Album Length - Sheet1.csv')
+
+auto.head()
+
+sns.distplot(auto['Tracks'] , color = 'green' , kde = False, rug = True)
+
+# The kde parameter is set to True to enable the Kernel Density Plot along with the distplot.
+# Rug plots are used to visualize the distribution of data. It is a plot of data for a single variable, displayed as marks along an axis. 
+
+df = pd.read_csv('Top 10 Albums By Year_ Tracks  Album Length - Sheet1.csv')    # adding color randomly 
+g = sns.PairGrid(df)
+g.map_upper(sns.scatterplot,color='red')
+g.map_lower(sns.scatterplot, color='green')
+g.map_diag(plt.hist)
+
+#or adding a single color to all the plots 
+
+sns.pairplot(auto[['Year' , 'Tracks','Ranking']])
+
+sns.stripplot(auto['Tracks'] , auto['Ranking'], jitter=True)
+sns.swarmplot(auto['Tracks'] , auto['Ranking'])
+sns.boxplot(auto['Year'] , auto['Ranking'])
+sns.boxplot(auto['Year'] , auto['Ranking'] , hue = auto['Tracks'])
+sns.barplot(auto['Year'] , auto['Ranking'] , hue = auto['Tracks'])
+sns.countplot(auto['Year'], hue = auto['Tracks'])
+sns.pointplot(auto['Year'] , auto['Ranking'])
