@@ -1,0 +1,34 @@
+# barcode plot with different parameters
+import matplotlib.pyplot as plt
+import numpy as np
+code = np.array([
+    1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1,
+    0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0,
+    ])
+pixel_per_bar = 5
+dpi = 60
+
+fig = plt.figure(figsize=(len(code) * pixel_per_bar / dpi, 2), dpi=dpi)
+ax = fig.add_axes([0, 0, 1, 1])  # span the whole figure   #ax.set_axis_off() to remove the axis from the plot off the axis here
+
+ax.imshow(code.reshape(1, -1), cmap='summer', aspect='auto',
+          interpolation='spline16')
+plt.show()
+
+# add the following parameters in imshow for variations
+
+# reshape() function allows us to reshape an array in Python
+
+#  plot_color_gradients('Sequential (2)',
+#                     ['binary', 'gist_yarg', 'gist_gray', 'gray', 'bone',
+#                      'pink', 'spring', 'summer', 'autumn', 'winter', 'cool',
+#                      'Wistia', 'hot', 'afmhot', 'gist_heat', 'copper'])
+
+# aspect : {'auto', 'equal'} or num
+
+# Axes.set_aspect(self, aspect, adjustable=None, anchor=None, share=False)
+# Set the aspect of the axis scaling, i.e. the ratio of y-unit to x-unit.
+
+# interpolation = ['none', 'nearest', 'bilinear', 'bicubic', 'spline16',
+#           'spline36', 'hanning', 'hamming', 'hermite', 'kaiser', 'quadric',
+#           'catrom', 'gaussian', 'bessel', 'mitchell', 'sinc', 'lanczos']
