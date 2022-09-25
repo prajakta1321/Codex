@@ -1,0 +1,21 @@
+# stem plot 
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0 , 10 ,  30)
+y = np.exp(np.cos(x))
+
+fig, ax = plt.subplots()
+ax.plot(x, y, linewidth=0.3)
+
+color = 'red'
+plt.plot(x , y , color)               # adding color
+
+plt.xlabel('x axis') 
+plt.ylabel('y axis') 
+  
+# displaying the title 
+plt.title("Graph")
+
+plt.stem(x, y)
+plt.show()
