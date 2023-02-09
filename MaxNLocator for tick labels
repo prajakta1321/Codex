@@ -1,0 +1,35 @@
+# MaxNLocator for tick labels
+
+import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator    #maxnlocator Finds up to a max number of intervals with ticks at nice locations.
+
+fig1, ax = plt.subplots()
+ax.set_xlim(0,10.5)
+ax.set_ylim(0,10.5)
+
+ax = fig1.add_subplot(222)   # 222 describes the position of the smaller integer graph wrt the larger graph.
+
+ax.set_xlabel('number 1')
+ax.set_ylabel('number 2')
+ax.set_title('integer graph')
+
+xs = range(13)
+ys = range(13)     # x and y must have same dimensions
+ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+ax.plot(xs, ys)
+plt.show()
+ 
+# larger graph with non integer values 
+fig2, ax = plt.subplots()
+ax.set_xlim(0,20)
+ax.set_ylim(0,20)
+
+ax = fig2.add_subplot(222)   # 222 describes the position of the smaller integer graph wrt the larger graph.
+
+ax.set_xlabel('number 1')
+ax.set_ylabel('number 2')
+ax.set_title('integer graph')
+xs = range(13)
+ys = range(13)     # x and y must have same dimensions
+ax.plot(xs, ys)
+plt.show()
